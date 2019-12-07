@@ -13,18 +13,22 @@ menu.addEventListener('click', () => {
    menu.classList.toggle('active');
    items.forEach(item => item.classList.toggle('animateOnce'));
    pageSections.forEach(section => section.classList.toggle('blur'));
-   background.classList.toggle('blur');
-   allowScroll = !allowScroll;
-   bindEventListeners();
+   if (typeof(background) != 'undefined' && background != null){
+       background.classList.toggle('blur');
+       allowScroll = !allowScroll;
+       bindEventListeners();
+   }
 });
 
 page.addEventListener('click', () => {
     menu.classList.remove('active');
     items.forEach(item => item.classList.remove('animateOnce'));
     pageSections.forEach(section => section.classList.remove('blur'));
-    background.classList.remove('blur');
-    allowScroll = true;
-    bindEventListeners();
+    if(typeof(background) != 'undefined' && background != null){
+        background.classList.remove('blur');
+        allowScroll = true;
+        bindEventListeners();
+    }
 });
 
 
